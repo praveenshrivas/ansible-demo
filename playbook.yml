@@ -1,0 +1,18 @@
+---
+- hosts: demo
+  become: yes
+  tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Print message
+      debug:
+        msg: "Apache installed and running successfully on {{ inventory_hostname }}"
