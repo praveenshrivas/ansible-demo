@@ -14,9 +14,9 @@ pipeline {
     stage('Run the Ansible Playbook'){
       steps{
         ansiblePlaybook{
-          playbook: 'playbook.yml',
-          inventory: 'hosts.ini',
-          credentialsId: 'ec2-ssh-key'
+          playbook:'playbook.yml',
+          inventory:'hosts.ini',
+          credentialsId:'ec2-ssh-key'
         }
       }
     }
