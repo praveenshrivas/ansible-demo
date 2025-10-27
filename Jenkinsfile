@@ -16,7 +16,7 @@ pipeline {
         ansiblePlaybook(
           playbook:'playbook.yml',
           inventory:'hosts.ini',
-          credentialsId:'ec2-ssh-key'
+          credentialsid:'ec2-ssh-key'
         )
       }
     }
