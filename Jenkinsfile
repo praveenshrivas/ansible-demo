@@ -9,7 +9,7 @@ pipeline {
 
     stage('Copy EC2 IP from Terraform Pipeline') {
       steps {
-        // Copy the latest ec2_ip.txt from Terraform job
+        sleep(time: 60, unit: 'SECONDS')
         copyArtifacts(
           projectName: 'Terraform-Demo',   // Change if your first job name differs
           selector: upstream(),
@@ -32,6 +32,7 @@ pipeline {
     stage('Clone the Repo') {
       steps {
         git branch: 'main', url: 'https://github.com/praveenshrivas/ansible-demo.git'
+        
       }
     }
 
