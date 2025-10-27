@@ -12,7 +12,8 @@ pipeline {
         // Copy the latest ec2_ip.txt from Terraform job
         copyArtifacts(
           projectName: 'Terraform-Demo',   // Change if your first job name differs
-          selector: lastSuccessful()
+          selector: upstream(),
+          filter: 'ec2_ip.txt'
         )
         sh 'cat ec2_ip.txt'
       }
