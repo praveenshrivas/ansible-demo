@@ -11,7 +11,8 @@ pipeline {
       steps{
         copyArtifacts(
           projectName: 'Terraform-Demo',
-          selector: lastSuccessful()
+          selector: upstream(),
+          filter: 'ec2_ip.txt'
         )
         sh 'cat ec2_ip.txt'
       }
