@@ -13,8 +13,7 @@ pipeline {
         sleep(time:60, unit:'SECONDS')
         copyArtifacts(
           projectName: 'Terraform-Demo',   // Change if your first job name differs
-          selector: upstream(),
-          filter: 'ec2_ip.txt'
+          selector: lastSuccessful()
         )
         sh 'cat ec2_ip.txt'
       }
